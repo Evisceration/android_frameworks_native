@@ -60,7 +60,7 @@ public:
 
     // Return the connection of this client
     sp<IBinder> connection() const;
-    
+
     // Forcibly remove connection before all references have gone away.
     void        dispose();
 
@@ -77,7 +77,10 @@ public:
     /* triggers screen on and waits for it to complete */
     static void unblankDisplay(const sp<IBinder>& display);
 
-#if defined(TOROPLUS_RADIO)
+    // TODO: Remove me.  Do not use.
+    // This is a compatibility shim for one product whose drivers are depending on
+    // this legacy function (when they shouldn't).
+#if defined(TOROPLUS_RADIO) || defined(QCOM_LEGACY)
     static status_t getDisplayInfo(int32_t displayId, DisplayInfo* info);
 #endif
 

@@ -646,7 +646,10 @@ void SurfaceComposerClient::unblankDisplay(const sp<IBinder>& token) {
     ComposerService::getComposerService()->unblank(token);
 }
 
-#if defined(TOROPLUS_RADIO)
+// TODO: Remove me.  Do not use.
+// This is a compatibility shim for one product whose drivers are depending on
+// this legacy function (when they shouldn't).
+#if defined(TOROPLUS_RADIO) || defined(QCOM_LEGACY)
 status_t SurfaceComposerClient::getDisplayInfo(
         int32_t displayId, DisplayInfo* info)
 {
