@@ -60,7 +60,6 @@ public:
 
     // Return the connection of this client
     sp<IBinder> connection() const;
-
     // Forcibly remove connection before all references have gone away.
     void        dispose();
 
